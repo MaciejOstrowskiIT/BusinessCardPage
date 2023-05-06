@@ -1,0 +1,36 @@
+import express, { Express, Request, Response} from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
+const fs = require("fs");
+const path = require("path");
+const bodyParser = require("body-parser");
+
+dotenv.config();
+
+const app: Express = express();
+const PORT: number = 31717;
+
+app.use(cors())
+app.use(bodyParser.json());
+
+app.get("/getTest", (req: Request, res: Response) => {
+    res.send("get-test");
+});
+
+app.post("/postTest", (req: Request, res: Response) => {
+    res.send("post-test");
+
+});
+
+
+const register = require("./posts/registerUser");
+app.post("/register", register);
+
+const login = require("./gets/loginUser");
+app.get("/login", login);
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

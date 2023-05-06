@@ -1,0 +1,7 @@
+GET http://127.0.0.1:31717/login
+Content-Type: application/json
+
+{
+  "username": "test3",
+  "password": "test3"
+}
