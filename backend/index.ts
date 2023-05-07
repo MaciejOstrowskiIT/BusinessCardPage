@@ -32,5 +32,6 @@ app.get("/login", login);
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    const fullTime = new Date().toLocaleTimeString('pl-PL', { hour12: false });
+    console.log(fullTime + ` Server is running on port ${PORT}`);
 })
