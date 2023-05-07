@@ -20,7 +20,6 @@ app.get("/getTest", (req: Request, res: Response) => {
 
 app.post("/postTest", (req: Request, res: Response) => {
     res.send("post-test");
-
 });
 
 
