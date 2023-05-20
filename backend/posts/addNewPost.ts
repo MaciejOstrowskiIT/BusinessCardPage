@@ -6,20 +6,27 @@ export const addNewPost = (req: Request, res: Response) => {
         const { title, content } = req.body;
         const directoryPath = "./database/posts";
 
-        fs.readdir(directoryPath, function (err: any, files: any) {
+        fs.readdir(directoryPath, (err: NodeJS.ErrnoException | null, files: string[]) => {
             if (err) {
-                return console.log("Unable to scan directory: " + err);
-            } else {
-                const post = JSON.stringify({ title, content }) + "\n";
-                if(files.includes(`${title}.json`)) return (res.status(400).json({ message: "Post already exists", code: 400 }), console.log("Post already exists"))
-                fs.writeFileSync(`database/posts/${title}.json`, post);
-                return res.status(200).json({ message: "Post created successfully", code: 200 });
+                console.error("Unable to scan directory: ", err);
+                return res.status(500).json({ message: "Internal server error", code: 500 });
             }
+
+            const postExists = files.includes(`${title}.json`);
+            if (postExists) {
+                console.log("Post already exists");
+                return res.status(400).json({ message: "Post already exists", code: 400 });
+            }
+
+            const post = JSON.stringify({ title, content }) + "\n";
+            fs.writeFileSync(`database/posts/${title}.json`, post);
+            console.log("Post created successfully");
+            return res.status(200).json({ message: "Post created successfully", code: 200 });
         });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Internal server error", code: 500 });
     }
-    catch (err) {
-        console.log(err);
-    }
-}
+};
 
 module.exports = addNewPost;
