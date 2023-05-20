@@ -1,0 +1,7 @@
+POST http://127.0.0.1:31717/addNewPost
+Content-Type: application/json
+
+{
+  "title": "testazzzzz",
+  "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. "
+}

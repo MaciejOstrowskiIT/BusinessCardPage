@@ -29,6 +29,9 @@ app.post("/register", register);
 const login = require("./gets/loginUser");
 app.get("/login", login);
 
+const addNewPost = require("./posts/addNewPost");
+app.post("/addNewPost", addNewPost);
+
 
 app.listen(PORT, () => {
     const fullTime = new Date().toLocaleTimeString('pl-PL', { hour12: false });
