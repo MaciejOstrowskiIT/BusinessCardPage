@@ -6,6 +6,8 @@ const fs = require("fs");
 const path = require("path");
 const bodyParser = require("body-parser");
 
+import deletePost from "./posts/deletePost";
+
 dotenv.config();
 
 const app: Express = express();
@@ -31,6 +33,8 @@ app.get("/login", login);
 
 const addNewPost = require("./posts/addNewPost");
 app.post("/addNewPost", addNewPost);
+
+app.delete("/deletePost/:title", deletePost);
 
 
 app.listen(PORT, () => {
