@@ -4,11 +4,9 @@ import './nav.css';
 const Nav = () => {
     const [isSticky, setIsSticky] = useState(false);
 
-
-
     useEffect(() => {
         const handleScroll = () => {
-            setIsSticky(window.pageYOffset > 0);
+            setIsSticky(window.scrollY > 1);
         };
         window.addEventListener('scroll', handleScroll);
 
@@ -16,7 +14,6 @@ const Nav = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
 
     const navigationClass = isSticky ? 'navigation-menu sticky' : 'navigation-menu';
 
