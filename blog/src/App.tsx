@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import Nav from "./components/nav/Nav.tsx";
 import './App.css';
-import CookiePrompt from "./components/footer/CookiePrompt.tsx";
+import CookiePrompt from "./components/footer/CookiePrompt/CookiePrompt.tsx";
 
 
 function App() {
