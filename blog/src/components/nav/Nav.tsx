@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import './nav.css';
+import {useEffect, useState} from "react";
+import "./nav.css";
 
 const Nav = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -8,14 +8,14 @@ const Nav = () => {
         const handleScroll = () => {
             setIsSticky(window.scrollY > 1);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
-    const navigationClass = isSticky ? 'navigation-menu sticky' : 'navigation-menu';
+    const navigationClass = isSticky ? "navigation-menu sticky" : "navigation-menu";
 
     return (
         <nav className={navigationClass}>
@@ -27,4 +27,4 @@ const Nav = () => {
     );
 };
 
-export default Nav
+export default Nav;
