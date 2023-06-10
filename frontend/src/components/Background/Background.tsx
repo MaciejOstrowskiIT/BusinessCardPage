@@ -1,11 +1,16 @@
-import App from "../../App.tsx";
 import "./Background.css";
 import React from "react";
 
-const Background: React.FC = () => {
+
+interface Props {
+    children: React.ReactNode;
+}
+
+const Background: React.FC<Props> = (props) => {
+
     return (
         <div className={"background"}>
-            <App/>
+            {props.children}
         </div>
     );
 };
