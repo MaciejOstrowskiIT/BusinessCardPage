@@ -19,14 +19,12 @@ function App() {
 
     return (
         <>
-            <div>
-                <Background>
-                    <Nav/>
-                    <img src={reactLogo} width="120" alt=""/>
-                    {quoteElements}
-                    <CookiePrompt/>
-                </Background>
-            </div>
+            <Background>
+                <Nav/>
+                <img src={reactLogo} width="120" alt=""/>
+                {quoteElements}
+                <CookiePrompt/>
+            </Background>
         </>
     );
 }
